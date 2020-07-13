@@ -1,0 +1,51 @@
+{
+  "version": "1.01",
+  "name": "custom.jmx.esure_Weblogic-rnetDB",
+  "type": "JMX",
+  "entity": "PROCESS_GROUP_INSTANCE",
+  "metricGroup": "custom.jmx.esure_Weblogic_rnetDB",
+  "configUI": {
+    "displayName": "esure_Weblogic_rnetDB"
+  },
+  "metrics": [
+    {
+      "timeseries": {
+        "key": "metric_ActiveConnectionsCurrentCount",
+        "unit": "Count",
+        "displayname": "ActiveConnectionsCurrentCount",
+        "dimensions": [
+          "rx_pid"
+        ]
+      },
+      "source": {
+        "domain": "com.bea",
+        "keyProperties": {
+          "JDBCOracleDataSourceRuntime": "rnetDB"
+        },
+        "attribute": "ActiveConnectionsCurrentCount",
+        "allowAdditionalKeys": true,
+        "calculateDelta": false,
+        "calculateRate": false,
+        "aggregation": "MAX"
+
+      }
+    }
+  ],
+  "ui": {
+    "charts": [
+      {
+        "group": "esure_Weblogic rnetDB",
+        "title": "ActiveConnectionsCurrentCount",
+        "series": [
+          {
+            "key": "metric_ActiveConnectionsCurrentCount",
+            "aggregation": "max",
+            "displayname": "ActiveConnectionsCurrentCount"
+          }
+        ]
+      }
+    ]
+
+  }
+
+}

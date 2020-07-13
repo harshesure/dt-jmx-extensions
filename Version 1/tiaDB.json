@@ -1,0 +1,51 @@
+{
+  "version": "1.01",
+  "name": "custom.jmx.esure_Weblogic-tiaDB",
+  "type": "JMX",
+  "entity": "PROCESS_GROUP_INSTANCE",
+  "metricGroup": "custom.jmx.esure_Weblogic_tiaDB",
+  "configUI": {
+    "displayName": "esure_Weblogic_tiaDB"
+  },
+  "metrics": [
+    {
+      "timeseries": {
+        "key": "metric_ActiveConnectionsCurrentCount",
+        "unit": "Count",
+        "displayname": "ActiveConnectionsCurrentCount",
+        "dimensions": [
+          "rx_pid"
+        ]
+      },
+      "source": {
+        "domain": "com.bea",
+        "keyProperties": {
+          "JDBCOracleDataSourceRuntime": "tiaDB"
+        },
+        "attribute": "ActiveConnectionsCurrentCount",
+        "allowAdditionalKeys": true,
+        "calculateDelta": false,
+        "calculateRate": false,
+        "aggregation": "MAX"
+
+      }
+    }
+  ],
+  "ui": {
+    "charts": [
+      {
+        "group": "esure_Weblogic tiaDB",
+        "title": "ActiveConnectionsCurrentCount",
+        "series": [
+          {
+            "key": "metric_ActiveConnectionsCurrentCount",
+            "aggregation": "max",
+            "displayname": "ActiveConnectionsCurrentCount"
+          }
+        ]
+      }
+    ]
+
+  }
+
+}
